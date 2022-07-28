@@ -8,9 +8,6 @@
     <artifactId>javaexe</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
-    <modules>
-        <module>empty</module>
-    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -53,7 +50,4 @@
             </plugin>
         </plugins>
     </build>
-
-
-
 </project>
