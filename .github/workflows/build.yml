@@ -28,6 +28,7 @@ jobs:
               jlink --add-modules=ALL-MODULE-PATH --output runtime
               cd ..
               npx caxa --input build --output application-mac --no-include-node -- "{{caxa}}/runtime/bin/java" "-jar" "{{caxa}}/javaexe-1.0.jar"
+              chmod +x application-mac
             artifact: application-mac
             asset_name: application-mac
           - os: ubuntu
@@ -39,6 +40,7 @@ jobs:
               jlink --add-modules=ALL-MODULE-PATH --output runtime
               cd ..
               npx caxa --input build --output application-linux --no-include-node -- "{{caxa}}/runtime/bin/java" "-jar" "{{caxa}}/javaexe-1.0.jar"
+              chmod +x application-linux
             artifact: application-linux
             asset_name: application-linux
     runs-on: ${{ matrix.os }}-latest
