@@ -6,7 +6,6 @@
 
     <groupId>example</groupId>
     <artifactId>javaexe</artifactId>
-    <packaging>pom</packaging>
     <version>1.0</version>
 
     <properties>
