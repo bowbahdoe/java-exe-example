@@ -16,9 +16,9 @@ jobs:
               cd build
               jlink --add-modules=ALL-MODULE-PATH --output runtime
               cd ..
-              npx caxa --input build --output application.exe --no-include-node -- {{caxa}}/runtime/bin/java -jar {{caxa}}/javaexe-1.0.jar
-            artifact: application.exe
-            asset_name: windows
+              npx caxa --input build --output application-windows.exe --no-include-node -- "{{caxa}}/runtime/bin/java" "-jar" "{{caxa}}/javaexe-1.0.jar"
+            artifact: application-windows.exe
+            asset_name: application-windows.exe
           - os: macos
             build: |
               mvn clean package
@@ -27,20 +27,20 @@ jobs:
               cd build
               jlink --add-modules=ALL-MODULE-PATH --output runtime
               cd ..
-              npx caxa --input build --output application --no-include-node -- {{caxa}}/runtime/bin/java -jar {{caxa}}/javaexe-1.0.jar
-            artifact: application
-            asset_name: mac
+              npx caxa --input build --output application-mac --no-include-node -- "{{caxa}}/runtime/bin/java" "-jar" "{{caxa}}/javaexe-1.0.jar"
+            artifact: application-mac
+            asset_name: application-mac
           - os: ubuntu
             build: |
               mvn clean package
               mkdir build
-              mv target/javaexe-1.0.jar build
+              mv ./target/javaexe-1.0.jar build
               cd build
               jlink --add-modules=ALL-MODULE-PATH --output runtime
               cd ..
-              npx caxa --input build --output application --no-include-node -- {{caxa}}/runtime/bin/java -jar {{caxa}}/javaexe-1.0.jar
-            artifact: application
-            asset_name: linux
+              npx caxa --input build --output application-linux --no-include-node -- "{{caxa}}/runtime/bin/java" "-jar" "{{caxa}}/javaexe-1.0.jar"
+            artifact: application-linux
+            asset_name: application-linux
     runs-on: ${{ matrix.os }}-latest
     steps:
       - uses: actions/checkout@v2
