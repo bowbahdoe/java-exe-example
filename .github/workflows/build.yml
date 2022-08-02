@@ -14,9 +14,7 @@ jobs:
               mkdir build
               mv target/javaexe-1.0.jar build
               cd build
-              jlink --add-modules=ALL-MODULE-PATH --output runtime
-              cd ..
-              npx caxa --input build --output application-windows.exe --no-include-node -- "{{caxa}}/runtime/bin/java" "-jar" "{{caxa}}/javaexe-1.0.jar"
+              jpackage --type app-image --main-jar javaexe-1.0.jar --output application-windows 
             artifact: application-windows.exe
             asset_name: application-windows.exe
           - os: macos
