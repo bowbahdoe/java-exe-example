@@ -13,8 +13,7 @@ jobs:
               mvn clean package
               mkdir build
               mv target/javaexe-1.0.jar build
-              cd build
-              jpackage --type app-image --main-jar javaexe-1.0.jar --output application-windows 
+              jpackage --input build --type app-image --main-jar javaexe-1.0.jar --output application-windows 
             artifact: application-windows.exe
             asset_name: application-windows.exe
           - os: macos
